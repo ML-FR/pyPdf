@@ -531,8 +531,10 @@ class DictionaryObject(dict, PdfObject):
             value = readObject(stream, pdf)
             if data.has_key(key):
                 # multiple definitions of key not permitted
-                raise utils.PdfReadError, "multiple definitions in dictionary"
-            data[key] = value
+                #raise utils.PdfReadError, "multiple definitions in dictionary"
+                pass
+            else:
+                data[key] = value
         pos = stream.tell()
         s = readNonWhitespace(stream)
         if s == 's' and stream.read(5) == 'tream':
